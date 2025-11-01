@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hitung Diskon</title>
+  </head>
+
+  <body>
+    <h1>Hitung Diskon</h1>
+    <label for="hargabarang">harga barang</label> <br />
+    <input type="text" id="harga-barang" /> <br />
+    <label for="diskon">Diskon</label> <br />
+    <input type="text" id="diskon" /> <br />
+    <button onclick="hitungdiskon()">Hitung</button>
+    <h1 id="hasil">Harga barang setelah diskon:</h1>
+  </body>
+
+  <script>
+    function hitungdiskon() {
+      let hargabarang = document.getElementById("harga-barang").value;
+      let diskon = document.getElementById("diskon").value;
+      let potongan = hargabarang * (diskon / 100);
+      let hargadiskon = hargabarang - potongan;
+      document.getElementById("hasil").textContent =
+        "Harga setelah diskon: Rp." + hargadiskon;
+    }
+  </script>
+</html>

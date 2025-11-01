@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <title>Kalkulator</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Kalkulator</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link disabled"
+                  href="#"
+                  tabindex="-1"
+                  aria-disabled="true"
+                  >Disabled</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- akhir navbar -->
+      <div class="card" style="width: 19rem">
+        <div class="card-body">
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            placeholder="kalkulator"
+            aria-label=".form-control-lg example"
+            id="screen"
+            readonly
+          />
+          <div class="container">
+            <div class="row g-1">
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="tambahangka(1)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  1
+                </button>
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="tambahangka(2)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  2
+                </button>
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="tambahangka(3)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  3
+                </button>
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="operator(`+`)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div class="row g-1">
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="tambahangka(4)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  4
+                </button>
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="tambahangka(5)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  5
+                </button>
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="tambahangka(6)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  6
+                </button>
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="operator(`-`)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  -
+                </button>
+              </div>
+            </div>
+            <div class="row g-1">
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="tambahangka(7)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  7
+                </button>
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="tambahangka(8)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  8
+                </button>
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="tambahangka(9)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  9
+                </button>
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="operator(`*`)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  x
+                </button>
+              </div>
+            </div>
+            <div class="row g-1">
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="clearscreen()"
+                  class="btn btn-outline-primary w-100"
+                >
+                  c
+                </button>
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="tambahangka(0)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  0
+                </button>
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="hitung(`=`)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  =
+                </button>
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  onclick="operator(`/`)"
+                  class="btn btn-outline-primary w-100"
+                >
+                  :
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let nilai1 = "";
+      let nilai2 = "";
+      let opr = "";
+
+      function tambahangka(angkadaritombol) {
+        console.log(angkadaritombol);
+        document.getElementById("screen").value += angkadaritombol;
+      }
+
+      function operator(oprdaritombol) {
+        nilai1 = document.getElementById("screen").value;
+        opr = oprdaritombol;
+        document.getElementById("screen").value = "";
+      }
+
+      function hitung() {
+        nilai2 = document.getElementById("screen").value;
+        let hasil = 0;
+        switch (opr) {
+          case "+":
+            hasil = parseInt(nilai1) + parseInt(nilai2);
+            break;
+          case "-":
+            hasil = parseInt(nilai1) - parseInt(nilai2);
+            break;
+          case "*":
+            hasil = parseInt(nilai1) * parseInt(nilai2);
+            break;
+          case "/":
+            hasil = parseInt(nilai1) / parseInt(nilai2);
+            break;
+        }
+        console.log(hasil);
+        document.getElementById("screen").value = hasil;
+      }
+      function clearscreen() {
+        document.getElementById("screen").value = "";
+        let nilai1 = "";
+        let nilai2 = "";
+        let opr = "";
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
